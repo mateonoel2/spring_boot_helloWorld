@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
+import java.util.List;
 
 @Service
 public class ProductoService {
@@ -17,5 +18,9 @@ public class ProductoService {
     public Producto crearProducto(Producto producto){
         producto.setId(UUID.randomUUID());
         return productoRepository.save(producto);
+    }
+
+    public List<Producto> listarTodosLosProductos(){
+        return productoRepository.findAll();
     }
 }
